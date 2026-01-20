@@ -1,3 +1,4 @@
+import "dotenv/config";
 import {
   PrismaClient,
   OnboardingStatus,
@@ -38,6 +39,11 @@ async function main() {
   console.log(`Created company: ${company.name}`);
 
   // seed departments
+
+  await prisma.department.deleteMany({
+    where: { company_id: company.id },
+  });
+
   for (const name of departments) {
     const department = await prisma.department.upsert({
       where: {
@@ -56,6 +62,10 @@ async function main() {
   }
 
   // seed job titles
+  await prisma.jobTitle.deleteMany({
+    where: { company_id: company.id },
+  });
+
   for (const jt of jobTitles) {
     const jobTitle = await prisma.jobTitle.upsert({
       where: {

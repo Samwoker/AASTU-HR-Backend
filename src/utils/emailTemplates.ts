@@ -24,7 +24,7 @@ const BRAND = {
   success: "#10b981",
   warning: "#f59e0b",
   error: "#ef4444",
-  companyName: "Aastu Digital Financial Service S.C",
+  companyName: "Aastu ",
 };
 
 // ============================================
